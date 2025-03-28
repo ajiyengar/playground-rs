@@ -1,0 +1,7 @@
+{
+  "rust-analyzer.runnableEnv": {
+      "RUST_LOG": "info"
+  },
+  // sleep.rs
+  // "rust-analyzer.runnables.cargoExtraArgs": ["3"]
+}

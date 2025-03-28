@@ -1,32 +1,41 @@
 # playground-rs
 
-## Initialize your playground
+## Initialize playground
 
 ```sh
 cargo new playground-rs
 cd playground-rs
 mkdir -p src/bin
-mv src/main.rs src/bin/hello.rs
-cargo run --bin hello
-```
-
-## Add more programs
-
-```sh
-echo 'fn main() {}' > src/bin/nextapp.rs
-# Build (this makes the analyzer happy)
-cargo build
-vim src/bin/nextapp.rs
-cargo run --bin nextapp
+mv src/main.rs src/bin/app.rs
+cargo build   ## To make rust-analyzer happy in vim
+vim src/bin/app.rs
+cargo run --bin app
 ```
 
 ## Make Rust scripts directly executable
 
 ```sh
 cargo install rust-script
-sed -i '1i#!/usr/bin/env rust-script' src/bin/hello.rs
-chmod a+rx src/bin/hello.rs
-./src/bin/hello.rs
+sed -i '1i#!/usr/bin/env rust-script' src/bin/app.rs
+chmod a+rx src/bin/app.rs
+./src/bin/app.rs
 ```
 
 ⇒ Hello, world!
+
+## REPL for experimentation
+
+```sh
+cargo install evcxr_repl
+evcxr
+```
+
+```rs
+>> fn whatis<T>(v: T) -> T {
+  println!("{}", std::any::type_name::<T>());
+  v
+}
+>> whatis((0..10).skip(3).take(2))
+Take { iter: Skip { iter: 0..10, n: 3 }, n: 2 }
+core::iter::adapters::take::Take<core::iter::adapters::skip::Skip<core::ops::range::Range<i32>>>
+```
