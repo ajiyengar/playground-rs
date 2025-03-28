@@ -36,6 +36,21 @@ evcxr
   v
 }
 >> whatis((0..10).skip(3).take(2))
-Take { iter: Skip { iter: 0..10, n: 3 }, n: 2 }
 core::iter::adapters::take::Take<core::iter::adapters::skip::Skip<core::ops::range::Range<i32>>>
+Take { iter: Skip { iter: 0..10, n: 3 }, n: 2 }
+```
+
+## lldb Debugger
+
+Read 64-bit value:  
+
+```c
+    expr/x -- *((uint64_t *)0x16fdfc370)
+
+```
+
+Write 64-bit value:  
+
+```c
+    expr/x -- *((uint64_t *)0x16fdfc370) = 0x3ff4cccccccccccd
 ```
