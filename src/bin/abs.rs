@@ -11,8 +11,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut args = std::env::args().skip(1);
 
     loop {
-        let number: i32 = args.next().ok_or("Not enough arguments")?.parse()?;
-        println!("abs({number}) = {}", abs(number as i64));
+        let number = args.next().ok_or("Not enough arguments")?.parse()?;
+        println!("abs({number}) = {}", abs(number));
         match number.cmp(&0) {
             std::cmp::Ordering::Less => {
                 eprintln!("Note: {number}");
