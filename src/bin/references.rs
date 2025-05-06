@@ -1,5 +1,6 @@
 #!/usr/bin/env rust-script
 
+#[allow(unused_variables)]
 fn main() {
     let mut i = 0;
     let j = 0;
